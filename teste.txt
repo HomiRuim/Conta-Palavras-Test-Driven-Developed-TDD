@@ -1,1 +1,1 @@
-Casa1 casa1 CASA1
+palavra1,palavra2.palavra3;palavra4

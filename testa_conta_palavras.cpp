@@ -166,3 +166,13 @@ TEST_CASE("Mistura de maiúsculas, minúsculas e números", "[ContaPalavras]") {
     REQUIRE(resultado["cAsA1"] == 0);
     REQUIRE(resultado["CaSa1"] == 0);
 }
+
+TEST_CASE("Símbolos como separadores", "[ContaPalavras]") {
+    std::ofstream teste("teste.txt");
+    teste << "palavra1,palavra2.palavra3;palavra4";
+    teste.close();
+
+    auto resultado = ContaPalavras("teste.txt");
+
+    REQUIRE(resultado["palavra1,palavra2.palavra3;palavra4"] == 1);
+}

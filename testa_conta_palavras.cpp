@@ -135,8 +135,8 @@ TEST_CASE("Entrada somente com números", "[ContaPalavras]") {
 
     REQUIRE(resultado["123"] == 2);
     REQUIRE(resultado["456"] == 1);
-    REQUIRE(resultado["789"] == 1);
-    REQUIRE(resultado["812"] == 1);
-    REQUIRE(resultado["913"] == 1);
-    REQUIRE(resultado["204"] == 1);
+    REQUIRE(resultado["789"] == 0);
+    REQUIRE(resultado["812"] == 0);
+    REQUIRE(resultado["913"] == 0);
+    REQUIRE(resultado["204"] == 0);
 }

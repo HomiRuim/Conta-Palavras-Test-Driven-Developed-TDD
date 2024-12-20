@@ -1,2 +1,2 @@
-este é um teste
-este é outro teste
+linha1 palavra1 palavra2
+linha2 palavra1 palavra3

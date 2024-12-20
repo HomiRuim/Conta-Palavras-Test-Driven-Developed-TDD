@@ -34,3 +34,14 @@ TEST_CASE("Ordem Alfabética", "[ContaPalavras]") {
     REQUIRE(ordenadas[1].first == "banana");
     REQUIRE(ordenadas[2].first == "uva");
 }
+
+TEST_CASE("Entrada com múltiplas linhas", "[ContaPalavras]") {
+    std::ofstream teste("teste.txt");
+    teste << "linha1 palavra1 palavra2\nlinha2 palavra1 palavra3\n";
+    teste.close();
+
+    auto resultado = ContaPalavras("teste.txt");
+
+    REQUIRE(resultado["linha1"] == 1);
+    REQUIRE(resultado["palavra1"] == 2);
+}

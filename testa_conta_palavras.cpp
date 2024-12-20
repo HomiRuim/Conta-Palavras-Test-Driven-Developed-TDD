@@ -152,3 +152,13 @@ TEST_CASE("Palavras com caracteres especiais", "[ContaPalavras]") {
     REQUIRE(resultado["@outra_palavra$"] == 1);
     REQUIRE(resultado["%mais_uma^"] == 1);
 }
+
+TEST_CASE("Mistura de maiúsculas, minúsculas e números", "[ContaPalavras]") {
+    std::ofstream teste("teste.txt");
+    teste << "Casa1 casa1 CASA1";
+    teste.close();
+
+    auto resultado = ContaPalavras("teste.txt");
+
+    REQUIRE(resultado["Casa1"] == 1);
+}

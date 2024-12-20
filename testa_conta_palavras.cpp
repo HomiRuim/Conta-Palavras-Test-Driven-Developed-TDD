@@ -101,3 +101,15 @@ TEST_CASE("Arquivo grande", "[ContaPalavras]") {
         REQUIRE(resultado["palavra" + std::to_string(i)] == 1);
     }
 }
+
+TEST_CASE("Linhas em branco", "[ContaPalavras]") {
+    std::ofstream teste("teste.txt");
+    teste << "linha1\n\nlinha2 palavra1\n\n";
+    teste.close();
+
+    auto resultado = ContaPalavras("teste.txt");
+
+    REQUIRE(resultado["linha1"] == 1);
+    REQUIRE(resultado["linha2"] == 1);
+    REQUIRE(resultado["palavra1"] == 1);
+}

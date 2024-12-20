@@ -25,7 +25,7 @@ cpplint:
 gcov: testa_conta_palavras
 	$(CXX) $(CXXFLAGS) $(GCOVFLAGS) -c conta_palavras.cpp -o conta_palavras.o
 	$(CXX) $(CXXFLAGS) $(GCOVFLAGS) conta_palavras.o testa_conta_palavras.o -o testa_conta_palavras
-	./testa_conta_palavras
+	./testa_conta_palavras.exe
 	gcov conta_palavras.cpp testa_conta_palavras.cpp
 
 debug: testa_conta_palavras
@@ -38,5 +38,5 @@ valgrind: testa_conta_palavras
 	valgrind --leak-check=yes --log-file=valgrind.rpt ./testa_conta_palavras
 
 clean:
-	del *.o *.exe *.gc* testa_conta_palavras testa_conta_palavras.exe testa_conta_palavras.o conta_palavras.o
+	rm *.o *.exe *.gc* testa_conta_palavras testa_conta_palavras.exe testa_conta_palavras.o conta_palavras.o
 

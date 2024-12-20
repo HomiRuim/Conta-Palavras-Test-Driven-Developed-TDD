@@ -126,7 +126,7 @@ TEST_CASE("Palavras duplicadas", "[ContaPalavras]") {
     REQUIRE(resultado["palavra3"] == 1);
 }
 
-TEST_CASE("Entrada só de numeros", "[ContaPalavras]") {
+TEST_CASE("Só numeros", "[ContaPalavras]") {
     std::ofstream teste("teste.txt");
     teste << "123 456 123";
     teste.close();
@@ -141,7 +141,7 @@ TEST_CASE("Entrada só de numeros", "[ContaPalavras]") {
     REQUIRE(resultado["204"] == 0);
 }
 
-TEST_CASE("Palavras com caracteres especiais", "[ContaPalavras]") {
+TEST_CASE("Caracteres especiais", "[ContaPalavras]") {
     std::ofstream teste("teste.txt");
     teste << "#palavra! @outra_palavra$ %mais_uma^";
     teste.close();
@@ -153,7 +153,7 @@ TEST_CASE("Palavras com caracteres especiais", "[ContaPalavras]") {
     REQUIRE(resultado["%mais_uma^"] == 1);
 }
 
-TEST_CASE("Mistura de maiúsculas, minúsculas e números", "[ContaPalavras]") {
+TEST_CASE("Sopa de caracteres", "[ContaPalavras]") {
     std::ofstream teste("teste.txt");
     teste << "Casa1 casa1 CASA1";
     teste.close();

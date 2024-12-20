@@ -24,7 +24,7 @@ TEST_CASE("Arquivo inexistente lança exceção", "[ContaPalavras]") {
     const std::ios_base::failure&);
 }
 
-TEST_CASE("Ordem Alfabética", "[ContaPalavras]") {
+TEST_CASE("Ordem alfabética", "[ContaPalavras]") {
     std::map<std::string, int> palavras = {
         {"banana", 2},
         {"abacaxi", 1},
@@ -52,7 +52,7 @@ TEST_CASE("Entrada com múltiplas linhas", "[ContaPalavras]") {
     REQUIRE(resultado["linha2"] == 1);
 }
 
-TEST_CASE("Espaços extras são ignorados", "[ContaPalavras]") {
+TEST_CASE("Ignorando espaços extras", "[ContaPalavras]") {
     std::ofstream teste("teste.txt");
     teste << "  palavra1   palavra2 palavra1   ";
     teste.close();
@@ -77,7 +77,7 @@ TEST_CASE("Caracteres não alfabéticos", "[ContaPalavras]") {
     REQUIRE(resultado["palavra1."] == 1);
 }
 
-TEST_CASE("Palavras repetidas com casos mistos", "[ContaPalavras]") {
+TEST_CASE("Palavras repetidas em casos mistos", "[ContaPalavras]") {
     std::ofstream teste("teste.txt");
     teste << "Casa casa CASA";
     teste.close();
@@ -114,7 +114,7 @@ TEST_CASE("Linhas em branco", "[ContaPalavras]") {
     REQUIRE(resultado["palavra1"] == 1);
 }
 
-TEST_CASE("Palavras duplicadas em diferentes linhas", "[ContaPalavras]") {
+TEST_CASE("Palavras duplicadas", "[ContaPalavras]") {
     std::ofstream teste("teste.txt");
     teste << "palavra1\npalavra2 palavra1\npalavra3 palavra2";
     teste.close();
@@ -126,7 +126,7 @@ TEST_CASE("Palavras duplicadas em diferentes linhas", "[ContaPalavras]") {
     REQUIRE(resultado["palavra3"] == 1);
 }
 
-TEST_CASE("Entrada somente com números", "[ContaPalavras]") {
+TEST_CASE("Entrada só de numeros", "[ContaPalavras]") {
     std::ofstream teste("teste.txt");
     teste << "123 456 123";
     teste.close();
@@ -139,4 +139,16 @@ TEST_CASE("Entrada somente com números", "[ContaPalavras]") {
     REQUIRE(resultado["812"] == 0);
     REQUIRE(resultado["913"] == 0);
     REQUIRE(resultado["204"] == 0);
+}
+
+TEST_CASE("Palavras com caracteres especiais", "[ContaPalavras]") {
+    std::ofstream teste("teste.txt");
+    teste << "#palavra! @outra_palavra$ %mais_uma^";
+    teste.close();
+
+    auto resultado = ContaPalavras("teste.txt");
+
+    REQUIRE(resultado["#palavra!"] == 1);
+    REQUIRE(resultado["@outra_palavra$"] == 1);
+    REQUIRE(resultado["%mais_uma^"] == 1);
 }

@@ -1,3 +1,5 @@
+// "Copyright [2024] <Davi Bueno>"
+
 #include "conta_palavras.hpp"
 #include <fstream>
 #include <sstream>
@@ -24,8 +26,10 @@ std::map<std::string, int> ContaPalavras(const std::string& filename) {
     return palavras;
 }
 
-std::vector<std::pair<std::string, int>> PalavrasOrdenadas(const std::map<std::string, int>& palavras) {
-    std::vector<std::pair<std::string, int>> ordenadas(palavras.begin(), palavras.end());
+std::vector<std::pair<std::string, int>> PalavrasOrdenadas
+(const std::map<std::string, int>& palavras) {
+    std::vector<std::pair<std::string, int>>
+    ordenadas(palavras.begin(), palavras.end());
 
     std::sort(ordenadas.begin(), ordenadas.end(),
               [](const auto& a, const auto& b) { return a.first < b.first; });

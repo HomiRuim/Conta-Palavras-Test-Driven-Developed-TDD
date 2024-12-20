@@ -44,4 +44,7 @@ TEST_CASE("Entrada com múltiplas linhas", "[ContaPalavras]") {
 
     REQUIRE(resultado["linha1"] == 1);
     REQUIRE(resultado["palavra1"] == 2);
+    REQUIRE(resultado["palavra2"] == 1);
+    REQUIRE(resultado["palavra3"] == 1);
+    REQUIRE(resultado["linha2"] == 1);
 }

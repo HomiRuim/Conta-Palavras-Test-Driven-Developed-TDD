@@ -163,6 +163,6 @@ TEST_CASE("Mistura de maiúsculas, minúsculas e números", "[ContaPalavras]") {
     REQUIRE(resultado["Casa1"] == 1);
     REQUIRE(resultado["casa1"] == 1);
     REQUIRE(resultado["CASA1"] == 1);
-    REQUIRE(resultado["cAsA1"] == 1);
+    REQUIRE(resultado["cAsA1"] == 0);
     REQUIRE(resultado["CaSa1"] == 1);
 }

@@ -161,4 +161,6 @@ TEST_CASE("Mistura de maiúsculas, minúsculas e números", "[ContaPalavras]") {
     auto resultado = ContaPalavras("teste.txt");
 
     REQUIRE(resultado["Casa1"] == 1);
+    REQUIRE(resultado["casa1"] == 1);
+    REQUIRE(resultado["CASA1"] == 1);
 }

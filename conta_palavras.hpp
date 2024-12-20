@@ -3,7 +3,7 @@
 
 #include <string>
 #include <map>
-
+#include <vector>
 /**
  * @brief Lê um arquivo e conta as palavras diferentes no texto.
  * 

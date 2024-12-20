@@ -1,6 +1,6 @@
 CXX = g++
-CXXFLAGS = -std=c++14 -Wall -DSIGSTKSZ=16384 -I.
-LDFLAGS = -lgtest -lgtest_main -pthread
+CXXFLAGS = -std=c++14 -Wall -DSIGSTKSZ=16384 -fprofile-arcs -ftest-coverage -I.
+LDFLAGS = -lgtest -lgtest_main -pthread -fprofile-arcs -ftest-coverage
 GCOVFLAGS = -fprofile-arcs -ftest-coverage
 
 all: testa_conta_palavras
@@ -25,7 +25,7 @@ cpplint:
 gcov: testa_conta_palavras
 	$(CXX) $(CXXFLAGS) $(GCOVFLAGS) -c conta_palavras.cpp -o conta_palavras.o
 	$(CXX) $(CXXFLAGS) $(GCOVFLAGS) conta_palavras.o testa_conta_palavras.o -o testa_conta_palavras
-	./testa_conta_palavras.exe
+	./testa_conta_palavras
 	gcov conta_palavras.cpp testa_conta_palavras.cpp
 
 debug: testa_conta_palavras

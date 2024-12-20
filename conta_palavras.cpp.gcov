@@ -1,0 +1,42 @@
+        -:    0:Source:conta_palavras.cpp
+        -:    0:Graph:conta_palavras.gcno
+        -:    0:Data:conta_palavras.gcda
+        -:    0:Runs:2
+        -:    1:// "Copyright [2024] <Davi Bueno>"
+        -:    2:
+        -:    3:#include "conta_palavras.hpp"
+        -:    4:#include <fstream>
+        -:    5:#include <sstream>
+        -:    6:#include <algorithm>
+        -:    7:#include <cctype>
+        -:    8:#include <vector>
+        -:    9:
+       26:   10:std::map<std::string, int> ContaPalavras(const std::string& filename) {
+       26:   11:    std::map<std::string, int> palavras;
+       26:   12:    std::ifstream arquivo(filename);
+        -:   13:
+       26:   14:    if (!arquivo.is_open()) {
+        2:   15:        throw std::ios_base::failure("Não foi possível abrir o arquivo.");
+        -:   16:    }
+        -:   17:
+       24:   18:    std::string linha, palavra;
+       62:   19:    while (std::getline(arquivo, linha)) {
+       38:   20:        std::istringstream stream(linha);
+     2124:   21:        while (stream >> palavra) {
+     2086:   22:            palavras[palavra]++;
+        -:   23:        }
+       38:   24:    }
+        -:   25:
+       48:   26:    return palavras;
+       28:   27:}
+        -:   28:
+        2:   29:std::vector<std::pair<std::string, int>> PalavrasOrdenadas
+        -:   30:(const std::map<std::string, int>& palavras) {
+        -:   31:    std::vector<std::pair<std::string, int>>
+        2:   32:    ordenadas(palavras.begin(), palavras.end());
+        -:   33:
+        2:   34:    std::sort(ordenadas.begin(), ordenadas.end(),
+        8:   35:              [](const auto& a, const auto& b) { return a.first < b.first; });
+        -:   36:
+        2:   37:    return ordenadas;
+    =====:   38:}

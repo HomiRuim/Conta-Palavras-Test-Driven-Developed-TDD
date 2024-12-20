@@ -6,6 +6,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <utility>
 
 
 /**
@@ -22,7 +23,4 @@ ContaPalavras(const std::string& filename);
 std::vector<std::pair<std::string, int>>
 PalavrasOrdenadas(const std::map<std::string, int>& palavras);
 
-
-#endif // CONTA_PALAVRAS_HPP_
-
-
+#endif  // CONTA_PALAVRAS_HPP_

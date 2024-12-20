@@ -73,4 +73,6 @@ TEST_CASE("Caracteres não alfabéticos", "[ContaPalavras]") {
     REQUIRE(resultado["palavra1,"] == 1);
     REQUIRE(resultado["palavra2!"] == 1);
     REQUIRE(resultado["(palavra3?)"] == 1);
+    REQUIRE(resultado["palavra4:"] == 1);
+    REQUIRE(resultado["palavra1."] == 1);
 }

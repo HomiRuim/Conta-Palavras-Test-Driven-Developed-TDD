@@ -108,7 +108,7 @@ TEST_CASE("Linhas em branco", "[ContaPalavras]") {
     teste.close();
 
     auto resultado = ContaPalavras("teste.txt");
-
+    
     REQUIRE(resultado["linha1"] == 1);
     REQUIRE(resultado["linha2"] == 1);
     REQUIRE(resultado["palavra1"] == 1);

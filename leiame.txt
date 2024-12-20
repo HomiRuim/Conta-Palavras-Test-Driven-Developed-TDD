@@ -1,0 +1,19 @@
+Olá, esse projeto foi feito utilizando o Ubuntu Linux, através do Visual Code Studio com acesso direto ao terminal
+
+Para sua execução correta, use o comando make
+Após isso, use o comando make test para verificar todos os testes de casos necessários
+
+Para verificar o gcov, use make gcov e procure nas linahs de saídas do terminal o arquivo conta_palavras.cpp, com verificação de cobertura 94.74% de 19 linhas
+
+Para verificar o cpplint, digite make cpplint, vai ter algumas linhas pedindo para colocar o diretório na declaração de #include, mas estava dando erro então deixei quieto pois não é algo grave
+
+Para verificar o cppcheck, basta digitar no terminal make cppcheck
+
+O doxygen foi gerado excluindo o arquivo catch.hpp conforme no pdf do trabalho
+
+
+Por fim, não esquecer de usar o terminal (bash) do Linux, no Windows talvez dê problema, sendo necessário modificar alguma coisa no Makefile, por isso recomendo executar no Linux nativo para evitar problemas.
+
+Agradeço a atenção e obrigado por olhar meu trabalho.
+
+Abraços, Davi Bueno.

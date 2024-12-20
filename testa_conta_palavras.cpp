@@ -76,3 +76,15 @@ TEST_CASE("Caracteres não alfabéticos", "[ContaPalavras]") {
     REQUIRE(resultado["palavra4:"] == 1);
     REQUIRE(resultado["palavra1."] == 1);
 }
+
+TEST_CASE("Palavras repetidas com casos mistos", "[ContaPalavras]") {
+    std::ofstream teste("teste.txt");
+    teste << "Casa casa CASA";
+    teste.close();
+
+    auto resultado = ContaPalavras("teste.txt");
+
+    REQUIRE(resultado["Casa"] == 1);
+    REQUIRE(resultado["casa"] == 1);
+    REQUIRE(resultado["CASA"] == 1);
+}

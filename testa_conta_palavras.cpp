@@ -88,3 +88,14 @@ TEST_CASE("Palavras repetidas com casos mistos", "[ContaPalavras]") {
     REQUIRE(resultado["casa"] == 1);
     REQUIRE(resultado["CASA"] == 1);
 }
+
+TEST_CASE("Arquivo grande", "[ContaPalavras]") {
+    std::ofstream teste("teste.txt");
+    for (int i = 0; i < 1000; ++i) {
+        teste << "palavra" << i << " ";
+    }
+
+    for (int i = 0; i < 1000; ++i) {
+        REQUIRE(resultado["palavra" + std::to_string(i)] == 1);
+    }
+}

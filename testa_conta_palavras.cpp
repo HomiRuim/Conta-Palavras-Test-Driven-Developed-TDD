@@ -94,7 +94,9 @@ TEST_CASE("Arquivo grande", "[ContaPalavras]") {
     for (int i = 0; i < 1000; ++i) {
         teste << "palavra" << i << " ";
     }
+    teste.close();
 
+    auto resultado = ContaPalavras("teste.txt");
     for (int i = 0; i < 1000; ++i) {
         REQUIRE(resultado["palavra" + std::to_string(i)] == 1);
     }

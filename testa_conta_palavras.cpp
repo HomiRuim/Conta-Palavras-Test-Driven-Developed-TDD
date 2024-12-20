@@ -122,4 +122,6 @@ TEST_CASE("Palavras duplicadas em diferentes linhas", "[ContaPalavras]") {
     auto resultado = ContaPalavras("teste.txt");
 
     REQUIRE(resultado["palavra1"] == 2);
+    REQUIRE(resultado["palavra2"] == 2);
+    REQUIRE(resultado["palavra3"] == 1);
 }

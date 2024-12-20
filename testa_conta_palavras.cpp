@@ -21,3 +21,16 @@ TEST_CASE("Arquivo inexistente lança exceção", "[ContaPalavras]") {
     REQUIRE_THROWS_AS(ContaPalavras("inexistente.txt"), const std::ios_base::failure&);
 }
 
+TEST_CASE("Ordem Alfabética", "[ContaPalavras]") {
+    std::map<std::string, int> palavras = {
+        {"banana", 2},
+        {"abacaxi", 1},
+        {"uva", 3}
+    };
+
+    auto ordenadas = PalavrasOrdenadas(palavras);
+
+    REQUIRE(ordenadas[0].first == "abacaxi");
+    REQUIRE(ordenadas[1].first == "banana");
+    REQUIRE(ordenadas[2].first == "uva");
+}

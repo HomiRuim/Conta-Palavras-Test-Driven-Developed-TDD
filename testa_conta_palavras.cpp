@@ -62,3 +62,15 @@ TEST_CASE("Espaços extras são ignorados", "[ContaPalavras]") {
     REQUIRE(resultado["palavra1"] == 2);
     REQUIRE(resultado["palavra2"] == 1);
 }
+
+TEST_CASE("Caracteres não alfabéticos", "[ContaPalavras]") {
+    std::ofstream teste("teste.txt");
+    teste << "palavra1, palavra2! (palavra3?) palavra4: palavra1.";
+    teste.close();
+
+    auto resultado = ContaPalavras("teste.txt");
+
+    REQUIRE(resultado["palavra1,"] == 1);
+    REQUIRE(resultado["palavra2!"] == 1);
+    REQUIRE(resultado["(palavra3?)"] == 1);
+}

@@ -1,1 +1,1 @@
-  palavra1   palavra2 palavra1   
+palavra1, palavra2! (palavra3?) palavra4: palavra1.

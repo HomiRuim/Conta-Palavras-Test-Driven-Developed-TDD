@@ -125,3 +125,13 @@ TEST_CASE("Palavras duplicadas em diferentes linhas", "[ContaPalavras]") {
     REQUIRE(resultado["palavra2"] == 2);
     REQUIRE(resultado["palavra3"] == 1);
 }
+
+TEST_CASE("Entrada somente com números", "[ContaPalavras]") {
+    std::ofstream teste("teste.txt");
+    teste << "123 456 123";
+    teste.close();
+
+    auto resultado = ContaPalavras("teste.txt");
+
+    REQUIRE(resultado["123"] == 2);
+}

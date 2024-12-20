@@ -1,3 +1,1 @@
-palavra1
-palavra2 palavra1
-palavra3 palavra2
+123 456 123

@@ -1,3 +1,5 @@
+// "Copyright [2024] <Davi Bueno>"
+
 #include <bits/stdc++.h>
 #include <iostream>
 #include <fstream>
@@ -18,7 +20,8 @@ TEST_CASE("Leitura de palavras do arquivo", "[ContaPalavras]") {
 }
 
 TEST_CASE("Arquivo inexistente lança exceção", "[ContaPalavras]") {
-    REQUIRE_THROWS_AS(ContaPalavras("inexistente.txt"), const std::ios_base::failure&);
+    REQUIRE_THROWS_AS(ContaPalavras("inexistente.txt"),
+    const std::ios_base::failure&);
 }
 
 TEST_CASE("Ordem Alfabética", "[ContaPalavras]") {

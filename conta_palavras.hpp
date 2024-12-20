@@ -24,3 +24,5 @@ PalavrasOrdenadas(const std::map<std::string, int>& palavras);
 
 
 #endif // CONTA_PALAVRAS_HPP_
+
+

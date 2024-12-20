@@ -51,3 +51,14 @@ TEST_CASE("Entrada com múltiplas linhas", "[ContaPalavras]") {
     REQUIRE(resultado["palavra3"] == 1);
     REQUIRE(resultado["linha2"] == 1);
 }
+
+TEST_CASE("Espaços extras são ignorados", "[ContaPalavras]") {
+    std::ofstream teste("teste.txt");
+    teste << "  palavra1   palavra2 palavra1   ";
+    teste.close();
+
+    auto resultado = ContaPalavras("teste.txt");
+
+    REQUIRE(resultado["palavra1"] == 2);
+    REQUIRE(resultado["palavra2"] == 1);
+}
